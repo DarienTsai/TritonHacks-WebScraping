@@ -2,8 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-
-# Request a page by URL
+# HTTP header we'll use for getting the page
 headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET',
@@ -12,16 +11,25 @@ headers = {
     # 'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
 }
 
-url = "https://weather.com/weather/today/l/33.9955,-117.9764"
+"""
+Get a copy of the page
+"""
+url = "https://www.yelp.com/search?find_desc=hot+dog&find_loc=La+Puente%2C+CA+91744&ns=1"
 page = requests.get(url, headers)
-
-
-# Scrape the page, then scrape what you want from that page
 scraps = BeautifulSoup(page.content, 'html.parser')
 
-# Get daily forecast table, get each weather item
-weather_tables = scraps.find_all(attrs={'title': 'Daily Forecast'})[0]
-weather = weather_tables.find_all("li", class_="Column--column--2bRa6")
 
-print([report.prettify() for report in weather])
-print(len(weather))
+"""
+Scrape the page
+"""
+# Get the html elements that are related to the search results
+containers = scraps.find_all("div", class_="businessName__09f24__3Wql2 display--inline-block__09f24__FsgS4 border-color--default__09f24__R1nRO")
+
+# Get the store names
+stores = []
+for i in range(len(containers)):
+    stores += containers[i].find_all("a", class_="link-size--inherit__09f24__2Uj95")
+
+# Print test
+for i in range(len(stores)):
+    print(stores[i].string)
