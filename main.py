@@ -14,22 +14,39 @@ headers = {
 """
 Get a copy of the page
 """
-url = "https://www.yelp.com/search?find_desc=hot+dog&find_loc=La+Puente%2C+CA+91744&ns=1"
+url = "https://www.yelp.com/search?find_desc=burger&find_loc=La+Jolla%2C+San+Diego%2C+CA&ns=1"
 page = requests.get(url, headers)
-scraps = BeautifulSoup(page.content, 'html.parser')
-
+scraper = BeautifulSoup(page.content, 'html.parser')
 
 """
 Scrape the page
 """
-# Get the html elements that are related to the search results
-containers = scraps.find_all("div", class_="businessName__09f24__3Wql2 display--inline-block__09f24__FsgS4 border-color--default__09f24__R1nRO")
 
-# Get the store names
-stores = []
-for i in range(len(containers)):
-    stores += containers[i].find_all("a", class_="link-size--inherit__09f24__2Uj95")
+# Get all search results
+results = scraper.find_all("div", class_="container__09f24__21w3G")
 
-# Print test
-for i in range(len(stores)):
-    print(stores[i].string)
+# Get all star ratings
+# TODO replace ' star rating' with '' in aria-label
+stars = scraper.find_all("div", class_="i-stars__09f24__1T6rz")
+
+# Get all prices
+prices = scraper.find_all("span", class_="priceRange__09f24__2O6le")
+
+
+# Get store names
+titleContainers = scraper.find_all("div", class_="businessName__09f24__3Wql2 display--inline-block__09f24__FsgS4 border-color--default__09f24__R1nRO")
+
+storeNames = []
+for i in range(len(storeNames)):
+    storeNames += titleContainers[i].find_all("a", class_="link-size--inherit__09f24__2Uj95")
+
+
+# Print tests
+for i in range(len(storeNames)):
+    print(storeNames[i].string)
+
+for i in range(len(stars)):
+    print(stars[i]["aria-label"])
+
+for i in range(len(prices)):
+    print(prices[i].string)
