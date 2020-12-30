@@ -4,14 +4,48 @@ import sys
 # --> HTML file
 
 HTML_FORMAT = """
+
 <!DOCTYPE html>
 <html>
-<title>Temporaray</title>
+<head>
+
+  <title>Temporaray</title>
+  <link type="text/css" rel="stylesheet" href="styles.css"/>
+
+</head>
+
 <body>
-{}
+
+  <div id="display">
+    {}
+  </div>
+
 </body>
 </html>
+
 """
+
+ITEM_FORMAT = """
+<div class="result">
+    <h1 class="loc">{place}</h1>
+
+    <div class="rating">
+        <h1 >
+            {rating}/5
+        </h1>
+        <p>Quality</p>
+    </div>
+
+    <div class="price">
+        <h1>
+            {price}/3
+        </h1>
+        <p>Expense</p>
+    </div>
+</div>
+"""
+
+# TODO: Create CSS file to properly format the columns
 
 # void generate(ArrayList<Integer> dataList)
 def generate(dataList):
