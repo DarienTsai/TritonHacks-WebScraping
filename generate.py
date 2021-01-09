@@ -30,7 +30,7 @@ ITEM_FORMAT = """
     <h1 class="loc">{place}</h1>
 
     <div class="rating">
-        <h1 >
+        <h1>
             {rating}/5
         </h1>
         <p>Quality</p>
