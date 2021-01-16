@@ -34,6 +34,10 @@ def scrape_for(query, location):
 
     # Get all prices
     prices = scraper.find_all("span", class_="priceRange__09f24__2O6le")
+
+    # Get all images, store only source attributes
+    images = scraper.find_all(class_="photo-box-img__09f24__3F3c5")[:10]
+    image_sources = [img["src"] for img in images]
     
     # turn stars into numbers
     for i in range(len(stars)):
@@ -43,7 +47,7 @@ def scrape_for(query, location):
     for i in range(len(prices)):
         prices[i] = prices[i].string
 
-    return (prices, stars)
+    return (prices, stars, image_sources)
 
 
     
