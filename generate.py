@@ -4,45 +4,51 @@ import sys
 # --> HTML file
 
 HTML_FORMAT = """
-
 <!DOCTYPE html>
-<html>
-<head>
-
-  <title>Temporaray</title>
-  <link type="text/css" rel="stylesheet" href="styles.css"/>
-
-</head>
-
-<body>
-
-  <div id="display">
-    {}
-  </div>
-
-</body>
+<html lang="en">
+  <head>
+    <title>Web scrapering!</title>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/css_template.css">
+   
+  </head>  
+  <body>
+     <!--Title-->
+    <h1 id="title">Statistics Comparison of Burger</h1>
+    
+    <!--Board-->
+    <div id="board">
+      <!--Left Slide-->
+      <div class="slide">
+        <!--location-->
+        <h2>{location1}</h2>
+        <!--average rating-->
+        <div><strong>Average rating:</strong>{rating1}/5</div>
+        <!--average price-->
+        <div><strong>Average price:</strong>{price1}/$$$$</div>
+        <!--Image (9)-->
+        <div class="imageCollage">
+        {image1}
+        </div>
+      </div>
+      <!--Right Slide-->
+      <div class="slide">
+        <!--location-->
+        <h2>{location2}</h2>
+        <!--average rating-->
+        <div><strong>Average rating:</strong>{rating2}/5</div>
+        <!--average price-->
+        <div><strong>Average price:</strong>{price2}/$$$$</div>
+        <!--Image (9)-->
+        <div class="imageCollage">
+        {image2}
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 
-"""
-
-ITEM_FORMAT = """
-<div class="result">
-    <h1 class="loc">{place}</h1>
-
-    <div class="rating">
-        <h1>
-            {rating}/5
-        </h1>
-        <p>Quality</p>
-    </div>
-
-    <div class="price">
-        <h1>
-            {price}/3
-        </h1>
-        <p>Expense</p>
-    </div>
-</div>
 """
 
 # TODO: Create CSS file to properly format the columns
