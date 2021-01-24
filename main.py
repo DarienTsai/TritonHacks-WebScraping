@@ -52,8 +52,8 @@ if __name__ == "__main__":
     print("and {} is higher rated!".format(higher_rating))
 
     generate(item, [
-        {"location":place1, "rating":place1_avg_price, "price":place1_avg_price, "images":images1},
-        {"location":place2, "rating":place2_avg_price, "price":place2_avg_price, "images":images2},
+        {"location":place1, "rating":place1_avg_rating, "price":place1_avg_price, "images":images1},
+        {"location":place2, "rating":place2_avg_rating, "price":place2_avg_price, "images":images2},
     ])
 
     webbrowser.open('file://' + os.path.realpath("out.html"))

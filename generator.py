@@ -1,9 +1,7 @@
 import sys
 import math
 
-# we have list of strings
-# --> HTML file
-
+# HTML Template. We fill the "{}" areas with actual content
 HTML_FORMAT = """
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +27,12 @@ HTML_FORMAT = """
   </body>
 </html>
 """
+
+# Symbolic representations of emojis
 STAR_EMOJI = "&#x2B50;"
 PRICE_EMOJI = "&#x1F4B8;"
 
+# Single Picture
 ITEM_FORMAT = """
       <div class="slide">
         <!--location-->
