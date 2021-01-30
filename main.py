@@ -24,7 +24,7 @@ if __name__ == "__main__":
         (prices1, stars1, images1) = scrape_for(item, place1)
         (prices2, stars2, images2) = scrape_for(item, place2)
 
-        # calculate the averaged prices and stars of the separate locations
+        # Calculate the averaged prices and stars of the separate locations
         place1_avg_price = avg_price(prices1)
         place1_avg_rating = avg_rating(stars1)
 
