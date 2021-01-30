@@ -70,7 +70,6 @@ def generate(item, dataList):
         rating, rating_int = calculate_moons(data['rating'], 4)
         price, price_int = calculate_moons(data['price'], 5)
 
-
         # Insert image links and append to image string
         images_string = ""
         for url in data['images']:

@@ -7,7 +7,6 @@ from convert import avg_price, avg_rating
 from scraper import scrape_for
 from generator import generate
 
-scrape_for("burger", "los angeles")
 
 if __name__ == "__main__":
 
@@ -19,7 +18,6 @@ if __name__ == "__main__":
     print("Second of two locations:\n")
     place2 = input()
     print("Thank you! Generating report...\n\n")
-
 
     try:
         # Make the scrapping requests (this may take a few seconds)
@@ -42,11 +40,11 @@ if __name__ == "__main__":
     higher_rating = place2 if place2_avg_rating > place1_avg_rating else place1
    
     # Print results and generate html report
-    print("In {p1}, the average rating for {it} is {ra} and the average price is {price}"
-    .format(p1=place1, it=item, ra=avg_rating(stars1), price=avg_price(prices1)))
+    print("In {p1}, the average rating for {it} is {ra} and the average price is {price}".format(
+        p1=place1, it=item, ra=avg_rating(stars1), price=avg_price(prices1)))
 
-    print("In {p2}, the average rating for {it} is {ra} and the average price is {price}\n"
-    .format(p2=place2, it=item, ra=avg_rating(stars2), price=avg_price(prices2)))
+    print("In {p2}, the average rating for {it} is {ra} and the average price is {price}\n".format(
+        p2=place2, it=item, ra=avg_rating(stars2), price=avg_price(prices2)))
 
     print("Based on this we can conclude that {} is cheaper...".format(cheaper))
     print("and {} is higher rated!".format(higher_rating))
