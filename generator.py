@@ -1,5 +1,6 @@
 import sys
 import math
+from convert import calculate_mons
 
 # HTML Template. We fill the "{}" areas with actual content
 HTML_FORMAT = """
@@ -43,23 +44,6 @@ ITEM_FORMAT = """
         </div>
       </div>
 """
-#  Calculate the type of emoji to display for current rating.
-def calculate_moons(score, multiplier):
-  # 🌑🌘🌓🌖🌕
-  MOON_EMOJIS = ["&#x1F311","&#x1F318", "&#x1F317", "&#x1F316", "&#x1F315"]
-  score = math.floor(float(score) * multiplier + 0.25) / multiplier
-  score_copy = score
-  
-  display_string = ""
-  for i in range (5):
-    if(score> 1):
-      display_string += MOON_EMOJIS[4]
-      score -= 1
-    else:
-      display_string += MOON_EMOJIS[int(score*4)]
-      score = 0
-
-  return (display_string, score_copy)
 
 # Write findings to out.html
 def generate(item, dataList):
@@ -70,12 +54,13 @@ def generate(item, dataList):
         rating, rating_int = calculate_moons(data['rating'], 4)
         price, price_int = calculate_moons(data['price'], 5)
 
-
         # Insert image links and append to image string
         images_string = ""
         for url in data['images']:
             images_string += """<img src="{}">""".format(url) + "\n"
 
+        # Using the ITEM_FORMAT template, we fill in the rest of the information
+        # including the location, rating, price, and images
         middle += ITEM_FORMAT.format(location=data['location'], 
                   rating = rating + "(" + str(rating_int) + ")",
                   price  = price + "(" + str(price_int) + ")",

@@ -13,22 +13,26 @@ headers = {
 String, String => ([ratings], [costs])
 """
 def scrape_for(query, location):
+    # Builds the URL for what to scrape
     url = "https://www.yelp.com/search?"
     params = {"find_desc": query, "find_loc": location, "ns": 1}
     url += urllib.parse.urlencode(params)
 
-    # caculate the location url encoded string
+    # Scrape the url with BeautifulSoup
     page = requests.get(url, headers)
     scraper = BeautifulSoup(page.content, 'html.parser')
+
 
     # Get all search results
     results = scraper.find_all("div", class_="container__09f24__21w3G")
 
     # Get all star ratings
-    stars = scraper.find_all("div", class_="i-stars__09f24__1T6rz")
+    # TODO Add the html element class that contains star ratings
+    stars = scraper.find_all("div")
 
     # Get all prices
-    prices = scraper.find_all("span", class_="priceRange__09f24__2O6le")
+    # TODO Add the html element class that contains price signs
+    prices = scraper.find_all("span")
 
     # Get all images, store only source attributes
     images = scraper.find_all(class_="photo-box-img__09f24__3F3c5")[:10]

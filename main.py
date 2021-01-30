@@ -7,7 +7,6 @@ from convert import avg_price, avg_rating
 from scraper import scrape_for
 from generator import generate
 
-scrape_for("burger", "los angeles")
 
 if __name__ == "__main__":
 
@@ -20,9 +19,9 @@ if __name__ == "__main__":
     place2 = input()
     print("Thank you! Generating report...\n\n")
 
-
     try:
         # Make the scrapping requests (this may take a few seconds)
+        # scrape_for is a function imported from scraper.py
         (prices1, stars1, images1) = scrape_for(item, place1)
         (prices2, stars2, images2) = scrape_for(item, place2)
 
