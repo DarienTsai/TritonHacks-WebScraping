@@ -6,6 +6,7 @@ def avg_price(prices):
     for i in range(len(prices)):
         sum += len(prices[i])
     
+    print(sum / len(prices))
     return sum / len(prices)
 
 """

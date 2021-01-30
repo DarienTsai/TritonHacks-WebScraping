@@ -29,17 +29,17 @@ if __name__ == "__main__":
         # calculate the averaged prices and stars of the separate locations
         place1_avg_price = avg_price(prices1)
         place1_avg_rating = avg_rating(stars1)
+
         place2_avg_price = avg_price(prices2)
         place2_avg_rating = avg_rating(stars2)
 
-    except:
-        print("Bad input, the program has ended")
+    except Exception as e:
+        print("Bad input, the program has ended", e)
         sys.exit()
 
     # Determine the cheaper and higher rated places
     cheaper = place2 if place1_avg_price > place2_avg_price else place1
     higher_rating = place2 if place2_avg_rating > place1_avg_rating else place1
-
    
     # Print results and generate html report
     print("In {p1}, the average rating for {it} is {ra} and the average price is {price}"
@@ -51,6 +51,7 @@ if __name__ == "__main__":
     print("Based on this we can conclude that {} is cheaper...".format(cheaper))
     print("and {} is higher rated!".format(higher_rating))
 
+    # Generate the report
     generate(item, [
         {"location":place1, "rating":place1_avg_rating, "price":place1_avg_price, "images":images1},
         {"location":place2, "rating":place2_avg_rating, "price":place2_avg_price, "images":images2},
