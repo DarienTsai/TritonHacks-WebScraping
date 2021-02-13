@@ -1,4 +1,5 @@
 import random
+import math
 
 """
 STEP 3
@@ -9,7 +10,7 @@ def avg_price(prices):
     print("Prices input looks like the following", prices)
     # Replace the below code to calculate the average prices! 
     # Keep in mind the type of our input (list of string)
-    average = random.randint(0, 40) / 10
+    average = random.randint(0, 40) / 10 # < TODO Replace this line
     return average
 
 """
@@ -21,7 +22,7 @@ def avg_rating(ratings):
 
     # Replace the below code to return the average of the values of the input
     # Keep in mind that the input here is a list of numbers
-    average = random.randint(0, 50) / 10
+    average = random.randint(0, 50) / 10 # <- TODO Replace this line
     return average
 
 """

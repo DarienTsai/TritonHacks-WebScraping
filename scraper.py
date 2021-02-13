@@ -22,34 +22,35 @@ def scrape_for(query, location):
     page = requests.get(url, headers)
     scraper = BeautifulSoup(page.content, 'html.parser')
 
-
     # Get all search results
     results = scraper.find_all("div", class_="container__09f24__21w3G")
 
     """
     STEP 1
+    hint: reference results (line 26)
     """
     # Get all prices
-    # TODO Add the html element class that contains price signs
-    prices = scraper.find_all("span")
-
+    prices = scraper.find_all("span") # <- TODO Add the div class here
+    
     """
     STEP 2
     """
     # Get all star ratings
-    # TODO Add the html element class that contains star ratings
-    stars = scraper.find_all("div")
+    stars = scraper.find_all("div") # <- TODO Add the div class here
 
+    """
+    Don't change the methods below
+    """
     # Get all images, store only source attributes
     images = scraper.find_all(class_="photo-box-img__09f24__3F3c5")[:10]
     image_sources = [img["src"] for img in images]
     
-    # turn stars into numbers
-    for i in range(len(stars)):
-        stars[i] = float(stars[i]["aria-label"][:-12])
-    
-    # turn prices into numbers as well
+    # turn prices(array of html tags) into numbers
     for i in range(len(prices)):
         prices[i] = prices[i].string
 
+    # turn stars(array of html tags) into numbers as well
+    for i in range(len(stars)):
+        stars[i] = float(stars[i]["aria-label"][:-12])
+    
     return (prices, stars, image_sources)
