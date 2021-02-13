@@ -26,13 +26,19 @@ def scrape_for(query, location):
     # Get all search results
     results = scraper.find_all("div", class_="container__09f24__21w3G")
 
-    # Get all star ratings
-    # TODO Add the html element class that contains star ratings
-    stars = scraper.find_all("div")
-
+    """
+    STEP 1
+    """
     # Get all prices
     # TODO Add the html element class that contains price signs
     prices = scraper.find_all("span")
+
+    """
+    STEP 2
+    """
+    # Get all star ratings
+    # TODO Add the html element class that contains star ratings
+    stars = scraper.find_all("div")
 
     # Get all images, store only source attributes
     images = scraper.find_all(class_="photo-box-img__09f24__3F3c5")[:10]

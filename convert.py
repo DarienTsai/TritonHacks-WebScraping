@@ -1,6 +1,7 @@
 import random
 
 """
+STEP 3
 [list of string prices (e.g. [$, $$])] => float
 """
 def avg_price(prices):
@@ -12,6 +13,7 @@ def avg_price(prices):
     return average
 
 """
+STEP 4
 [list of numbers] => float
 """
 def avg_rating(ratings):
@@ -22,7 +24,10 @@ def avg_rating(ratings):
     average = random.randint(0, 50) / 10
     return average
 
-
+"""
+Don't change this method
+[int, int] => [String, float]
+"""
 #  Calculates the type of emoji to display for current rating.
 def calculate_moons(score, multiplier):
   # 🌑🌘🌓🌖🌕
