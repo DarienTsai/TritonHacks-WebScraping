@@ -55,5 +55,3 @@ if __name__ == "__main__":
         {"location":place1, "rating":place1_avg_rating, "price":place1_avg_price, "images":images1},
         {"location":place2, "rating":place2_avg_rating, "price":place2_avg_price, "images":images2},
     ])
-
-    webbrowser.open('file://' + os.path.realpath("out.html"))
