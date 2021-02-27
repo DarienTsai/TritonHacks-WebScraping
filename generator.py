@@ -1,6 +1,6 @@
 import sys
 import math
-from convert import calculate_mons
+from convert import calculate_moons
 
 # HTML Template. We fill the "{}" areas with actual content
 HTML_FORMAT = """

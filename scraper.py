@@ -27,7 +27,7 @@ def scrape_for(query, location):
 
     """
     STEP 1
-    hint: reference results (line 26)
+    hint: refer to results in (line 26)
     """
     # Get all prices
     prices = scraper.find_all("span") # <- TODO Add the div class here
