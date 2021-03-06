@@ -26,14 +26,14 @@ def scrape_for(query, location):
     results = scraper.find_all("div", class_="container__09f24__21w3G")
 
     """
-    STEP 1
+    STEP 3
     hint: refer to results in (line 26)
     """
     # Get all prices
     prices = scraper.find_all("span") # <- TODO Add the div class here
     
     """
-    STEP 2
+    STEP 4
     """
     # Get all star ratings
     stars = scraper.find_all("div") # <- TODO Add the div class here
