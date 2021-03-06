@@ -2,7 +2,7 @@ import random
 import math
 
 """
-STEP 3
+STEP 5 - Average Price
 [list of string prices (e.g. [$, $$])] => float
 """
 def avg_price(prices):
@@ -14,7 +14,7 @@ def avg_price(prices):
     return average
 
 """
-STEP 4
+STEP 5 - Average Rating
 [list of numbers] => float
 """
 def avg_rating(ratings):
