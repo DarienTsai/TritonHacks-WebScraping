@@ -30,7 +30,7 @@ def scrape_for(query, location):
     hint: refer to results in (line 26)
     """
     # Get all prices
-    prices = scraper.find_all("span") # <- TODO Add the div class here
+    prices = scraper.find_all("span") # <- TODO Add the span class here
 
     """
     PART 4
