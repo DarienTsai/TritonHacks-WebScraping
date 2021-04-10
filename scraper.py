@@ -42,7 +42,7 @@ def scrape_for(query, location):
     Don't change the methods below
     """
     # Get all images, store only source attributes
-    images = scraper.find_all(class_="photo-box-img__09f24__3F3c5")[:10]
+    images = scraper.find_all(class_="css-xlzvdl")[:10]
     image_sources = [img["src"] for img in images]
 
     # turn prices(array of html tags) into numbers
