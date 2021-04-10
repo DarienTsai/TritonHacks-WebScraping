@@ -26,14 +26,14 @@ def scrape_for(query, location):
     results = scraper.find_all("div", class_="container__09f24__21w3G")
 
     """
-    STEP 1
+    PART 3
     hint: refer to results in (line 26)
     """
     # Get all prices
     prices = scraper.find_all("span") # <- TODO Add the div class here
-    
+
     """
-    STEP 2
+    PART 4
     """
     # Get all star ratings
     stars = scraper.find_all("div") # <- TODO Add the div class here
@@ -44,7 +44,7 @@ def scrape_for(query, location):
     # Get all images, store only source attributes
     images = scraper.find_all(class_="photo-box-img__09f24__3F3c5")[:10]
     image_sources = [img["src"] for img in images]
-    
+
     # turn prices(array of html tags) into numbers
     for i in range(len(prices)):
         prices[i] = prices[i].string
@@ -52,5 +52,5 @@ def scrape_for(query, location):
     # turn stars(array of html tags) into numbers as well
     for i in range(len(stars)):
         stars[i] = float(stars[i]["aria-label"][:-12])
-    
+
     return (prices, stars, image_sources)

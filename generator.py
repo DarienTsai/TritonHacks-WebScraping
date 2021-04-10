@@ -31,18 +31,18 @@ HTML_FORMAT = """
 
 # Single Picture
 ITEM_FORMAT = """
-      <div class="slide">
-        <!--location-->
-        <h2>{location}</h2>
-        <!--average rating-->
-        <div><strong>Average rating:</strong>{rating}</div>
-        <!--average price-->
-        <div><strong>Average price:</strong>{price}</div>
-        <!--Image-->
-        <div class="imageCollage">
-          {images}
-        </div>
-      </div>
+  <div class="slide">
+    <!--location-->
+    <h2>{location}</h2>
+    <!--average rating-->
+    <div><strong>Average rating:</strong>{rating}</div>
+    <!--average price-->
+    <div><strong>Average price:</strong>{price}</div>
+    <!--Image-->
+    <div class="imageCollage">
+      {images}
+    </div>
+  </div>
 """
 
 # Write findings to out.html

@@ -39,7 +39,7 @@ if __name__ == "__main__":
     # Determine the cheaper and higher rated places
     cheaper = place2 if place1_avg_price > place2_avg_price else place1
     higher_rating = place2 if place2_avg_rating > place1_avg_rating else place1
-   
+
     # Print results and generate html report
     print("In {p1}, the average rating for {it} is {ra} and the average price is {price}"
     .format(p1=place1, it=item, ra=avg_rating(stars1), price=avg_price(prices1)))
