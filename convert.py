@@ -18,7 +18,7 @@ PART 5 - Average Rating
 [list of numbers] => float
 """
 def avg_rating(ratings):
-  print("Prices input looks like the following", ratings)
+  print("Ratings input looks like the following", ratings)
 
   # Replace the below code to return the average of the values of the input
   # Keep in mind that the input here is a list of numbers
